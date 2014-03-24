@@ -1,0 +1,23 @@
+#include <QtGui/QApplication>
+#include <QtOpenGL/QGLFormat>
+
+#include "ui/mainwindow.h"
+
+#include <iostream>
+
+int main(int argc, char *argv[]) {
+
+	QApplication app(argc, argv);
+
+	if (!QGLFormat::hasOpenGL()) {
+		std::cerr << "This system has no OpenGL support" << std::endl;
+		return 1;
+	}
+
+	app.setOrganizationName("MAS_QT");
+	app.setApplicationName("Application MAS_QT");
+	MainWindow mainWin;
+	mainWin.show();
+
+    return app.exec();
+}
